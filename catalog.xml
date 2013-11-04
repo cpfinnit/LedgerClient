@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:8080/LedgerApp/GetAccountInformationImplService?wsdl" uri="xml-resources/web-service-references/GetAccountInformationImplService/wsdl/localhost_8080/LedgerApp/GetAccountInformationImplService.wsdl"/>
+    <system systemId="http://localhost:8080/LedgerApp/GetAccountInformationImplService?xsd=1" uri="xml-resources/web-service-references/GetAccountInformationImplService/wsdl/localhost_8080/LedgerApp/GetAccountInformationImplService.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/LedgerApp/GetUserImplService?wsdl" uri="xml-resources/web-service-references/GetUserImplService/wsdl/localhost_8080/LedgerApp/GetUserImplService.wsdl"/>
+    <system systemId="http://localhost:8080/LedgerApp/GetUserImplService?xsd=1" uri="xml-resources/web-service-references/GetUserImplService/wsdl/localhost_8080/LedgerApp/GetUserImplService.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/LedgerApp/GetTransactionInformationImplService?wsdl" uri="xml-resources/web-service-references/GetTransactionInformationImplService/wsdl/localhost_8080/LedgerApp/GetTransactionInformationImplService.wsdl"/>
+    <system systemId="http://localhost:8080/LedgerApp/GetTransactionInformationImplService?xsd=1" uri="xml-resources/web-service-references/GetTransactionInformationImplService/wsdl/localhost_8080/LedgerApp/GetTransactionInformationImplService.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/LedgerApp/RegisterUserImplService?wsdl" uri="xml-resources/web-service-references/RegisterUserImplService/wsdl/localhost_8080/LedgerApp/RegisterUserImplService.wsdl"/>
+    <system systemId="http://localhost:8080/LedgerApp/RegisterUserImplService?xsd=1" uri="xml-resources/web-service-references/RegisterUserImplService/wsdl/localhost_8080/LedgerApp/RegisterUserImplService.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/LedgerApp/AddAccountImplService?wsdl" uri="xml-resources/web-service-references/AddAccountImplService/wsdl/localhost_8080/LedgerApp/AddAccountImplService.wsdl"/>
+    <system systemId="http://localhost:8080/LedgerApp/AddAccountImplService?xsd=1" uri="xml-resources/web-service-references/AddAccountImplService/wsdl/localhost_8080/LedgerApp/AddAccountImplService.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/LedgerApp/AddTransactionImplService?wsdl" uri="xml-resources/web-service-references/AddTransactionImplService/wsdl/localhost_8080/LedgerApp/AddTransactionImplService.wsdl"/>
+    <system systemId="http://localhost:8080/LedgerApp/AddTransactionImplService?xsd=1" uri="xml-resources/web-service-references/AddTransactionImplService/wsdl/localhost_8080/LedgerApp/AddTransactionImplService.xsd_1.xsd"/>
+</catalog>

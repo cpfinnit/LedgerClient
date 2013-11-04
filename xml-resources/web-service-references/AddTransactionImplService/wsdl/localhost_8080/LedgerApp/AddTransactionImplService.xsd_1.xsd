@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Metro/2.2.0-1 (tags/2.2.0u1-7139; 2012-06-02T10:55:19+0000) JAXWS-RI/2.2.6-2 JAXWS/2.2 svn-revision#unknown. --><xs:schema xmlns:tns="http://transactionservice.service.ledgerapp.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://transactionservice.service.ledgerapp.com/">
+
+<xs:element name="addTransaction" type="tns:addTransaction"/>
+
+<xs:element name="addTransactionResponse" type="tns:addTransactionResponse"/>
+
+<xs:complexType name="addTransaction">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
+<xs:element name="arg1" type="xs:string" minOccurs="0"/>
+<xs:element name="arg2" type="xs:double"/>
+<xs:element name="arg3" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="addTransactionResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:transaction" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="transaction">
+<xs:sequence>
+<xs:element name="accountNum" type="xs:string" minOccurs="0"/>
+<xs:element name="toFrom" type="xs:string" minOccurs="0"/>
+<xs:element name="transAmount" type="xs:double"/>
+<xs:element name="transDate" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
