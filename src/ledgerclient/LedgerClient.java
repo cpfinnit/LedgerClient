@@ -6,7 +6,6 @@
 
 package ledgerclient;
 
-
 import com.ledgerapp.service.accountservice.Account;
 import com.ledgerapp.service.accountservice.AddAccount;
 import com.ledgerapp.service.accountservice.AddAccountImplService;
@@ -17,12 +16,13 @@ import com.ledgerapp.service.transactionservice.AddTransactionImplService;
 import com.ledgerapp.service.transactionservice.GetTransactionInformation;
 import com.ledgerapp.service.transactionservice.GetTransactionInformationImplService;
 import com.ledgerapp.service.transactionservice.Transaction;
-import com.ledgerapp.service.userservice.GetUser;
 import com.ledgerapp.service.userservice.GetUserImpl;
 import com.ledgerapp.service.userservice.GetUserImplService;
 import com.ledgerapp.service.userservice.RegisterUser;
 import com.ledgerapp.service.userservice.RegisterUserImplService;
 import com.ledgerapp.service.userservice.User;
+
+
 
 
 
@@ -46,7 +46,15 @@ public class LedgerClient {
         User newUser = null;
         Transaction newTrans = null;
         
-        account = getAccount("1235");
+        try 
+        {
+            account = getAccount("1235");
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        
         user = getUser("HomeSimpson");
         trans = getTransaction();
         newUser = registerUser("New User");

@@ -67,23 +67,6 @@
         <delete dir="${build.generated.dir}/jax-wsCache/GetTransactionInformationImplService"/>
         <delete dir="${build.generated.sources.dir}/jax-ws/com/ledgerapp/service/transactionservice"/>
     </target>
-    <target name="wsimport-client-RegisterUserImplService" depends="wsimport-init">
-        <mkdir dir="${build.generated.dir}/jax-wsCache/RegisterUserImplService"/>
-        <property name="wsdl-RegisterUserImplService" location="xml-resources/web-service-references/RegisterUserImplService/wsdl/localhost_8080/LedgerApp/RegisterUserImplService.wsdl"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/RegisterUserImplService" destdir="${build.generated.dir}/jax-wsCache/RegisterUserImplService" wsdl="${wsdl-RegisterUserImplService}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/LedgerApp/RegisterUserImplService?wsdl" xnocompile="true" xendorsed="true">
-            <depends file="${wsdl-RegisterUserImplService}"/>
-            <produces dir="${build.generated.dir}/jax-wsCache/RegisterUserImplService"/>
-        </wsimport>
-        <copy todir="${build.generated.sources.dir}/jax-ws">
-            <fileset dir="${build.generated.dir}/jax-wsCache/RegisterUserImplService">
-                <include name="**/*.java"/>
-            </fileset>
-        </copy>
-    </target>
-    <target name="wsimport-client-clean-RegisterUserImplService" depends="-init-project">
-        <delete dir="${build.generated.dir}/jax-wsCache/RegisterUserImplService"/>
-        <delete dir="${build.generated.sources.dir}/jax-ws/com/ledgerapp/service/userservice"/>
-    </target>
     <target name="wsimport-client-AddAccountImplService" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/AddAccountImplService"/>
         <property name="wsdl-AddAccountImplService" location="xml-resources/web-service-references/AddAccountImplService/wsdl/localhost_8080/LedgerApp/AddAccountImplService.wsdl"/>
@@ -118,5 +101,22 @@
         <delete dir="${build.generated.dir}/jax-wsCache/AddTransactionImplService"/>
         <delete dir="${build.generated.sources.dir}/jax-ws/com/ledgerapp/service/transactionservice"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-GetAccountInformationImplService, wsimport-client-GetUserImplService, wsimport-client-GetTransactionInformationImplService, wsimport-client-RegisterUserImplService, wsimport-client-AddAccountImplService, wsimport-client-AddTransactionImplService"/>
+    <target name="wsimport-client-RegisterUserImplService" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/RegisterUserImplService"/>
+        <property name="wsdl-RegisterUserImplService" location="xml-resources/web-service-references/RegisterUserImplService/wsdl/localhost_8080/LedgerApp/RegisterUserImplService.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/RegisterUserImplService" destdir="${build.generated.dir}/jax-wsCache/RegisterUserImplService" wsdl="${wsdl-RegisterUserImplService}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/LedgerApp/RegisterUserImplService?wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${wsdl-RegisterUserImplService}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/RegisterUserImplService"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/RegisterUserImplService">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-RegisterUserImplService" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/RegisterUserImplService"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/com/ledgerapp/service/userservice"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-GetAccountInformationImplService, wsimport-client-GetUserImplService, wsimport-client-GetTransactionInformationImplService, wsimport-client-AddAccountImplService, wsimport-client-AddTransactionImplService, wsimport-client-RegisterUserImplService"/>
 </project>
