@@ -6,11 +6,13 @@
 
 package ledgerclient;
 
+
 import com.ledgerapp.service.accountservice.Account;
 import com.ledgerapp.service.accountservice.AddAccount;
 import com.ledgerapp.service.accountservice.AddAccountImplService;
-import com.ledgerapp.service.accountservice.GetAccountInformation;
-import com.ledgerapp.service.accountservice.GetAccountInformationImplService;
+import com.ledgerapp.service.accountservice.GetAccount;
+import com.ledgerapp.service.accountservice.GetAccountImplService;
+import com.ledgerapp.service.accountservice.InvalidAccountException_Exception;
 import com.ledgerapp.service.transactionservice.AddTransaction;
 import com.ledgerapp.service.transactionservice.AddTransactionImplService;
 import com.ledgerapp.service.transactionservice.GetTransactionInformation;
@@ -21,12 +23,6 @@ import com.ledgerapp.service.userservice.GetUserImplService;
 import com.ledgerapp.service.userservice.RegisterUser;
 import com.ledgerapp.service.userservice.RegisterUserImplService;
 import com.ledgerapp.service.userservice.User;
-
-
-
-
-
-
 
 /**
  *
@@ -48,28 +44,51 @@ public class LedgerClient {
         
         try 
         {
-            account = getAccount("1235");
+            account = getAccount("");
         }
         catch (Exception e)
         {
-            e.printStackTrace();
+           e.printStackTrace();
         }
         
-        user = getUser("HomeSimpson");
-        trans = getTransaction();
+        try
+        {
+            user = getUser("HomeSimpson");
+        }
+        catch (Exception e)
+        {
+            System.out.println("Invalid username");
+        }
+        
+        try
+        {
+            trans = getTransaction();
+        }
+        catch (Exception e)
+        {
+            System.out.println("Invalid Transaction");
+        }
+                
+        
+        
+        
         newUser = registerUser("New User");
-        newAccount = addAccount("New Account", "1234567890", "New Bank");
+        addAccount("New Account", "1234567890", "New Bank");
         newTrans = addTransaction("To/From", "11/03/2013", 99.99, "123456790");
         
         System.out.println("*******User Info************************");
         System.out.println("UserName: " + user.getUsername());
         System.out.println("****************************************");
         
-        System.out.println("*******Account Info********************");
-        System.out.println("Account Name: " + account.getAccountName());
-        System.out.println("Account Number: " + account.getAccountNum());
-        System.out.println("Bank Name: " + account.getBankName());
-        System.out.println("****************************************");
+        if (account != null)
+        {
+            System.out.println("*******Account Info********************");
+            System.out.println("Account Name: " + account.getAccountName());
+            System.out.println("Account Number: " + account.getAccountNum());
+            System.out.println("Bank Name: " + account.getBankName());
+            System.out.println("****************************************");
+        }
+        
         
         System.out.println("*******Transaction Info*****************");
         System.out.println("To/From: " + trans.getToFrom());
@@ -83,11 +102,6 @@ public class LedgerClient {
         System.out.println("UserName: " + newUser.getUsername());
         System.out.println("****************************************");
         
-        System.out.println("*******Account Info********************");
-        System.out.println("Account Name: " + newAccount.getAccountName());
-        System.out.println("Account Number: " + newAccount.getAccountNum());
-        System.out.println("Bank Name: " + newAccount.getBankName());
-        System.out.println("****************************************");
         
          System.out.println("*******Transaction Info*****************");
         System.out.println("To/From: " + newTrans.getToFrom());
@@ -98,10 +112,10 @@ public class LedgerClient {
         
     }
     
-    private static Account getAccount(String accountNum) {
+    private static Account getAccount(String accountNum) throws InvalidAccountException_Exception {
         
-        GetAccountInformationImplService service = new GetAccountInformationImplService();
-        GetAccountInformation port = service.getGetAccountInformationImplPort();
+        GetAccountImplService service = new GetAccountImplService();
+        GetAccount port = service.getGetAccountImplPort();
         return port.getAccount(accountNum); 
     }
     
@@ -129,14 +143,16 @@ public class LedgerClient {
         return port.registerUser(userName);
     }
     
-    private static Account addAccount(String accountName, String accountNumber, String bankName) {
+    private static void addAccount(String accountName, String accountNumber, String bankName) {
         
         Account account = null;
         AddAccountImplService service = new AddAccountImplService();
         AddAccount port = service.getAddAccountImplPort();
-        return port.addAccount(bankName, bankName, bankName);
+        port.addAccount(bankName, bankName, bankName);
+        
+        
     }
-    
+   
     private static Transaction addTransaction(String toFrom, String transDate, double transAmount, String accountNumber) {
         
         Transaction trans = null;

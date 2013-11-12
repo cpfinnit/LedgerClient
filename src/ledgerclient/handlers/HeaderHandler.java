@@ -9,6 +9,8 @@ package ledgerclient.handlers;
 
 import static com.sun.org.apache.xerces.internal.impl.xpath.XPath.NodeTest.QNAME;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.xml.namespace.QName;
 import javax.xml.soap.SOAPConstants;
 import javax.xml.soap.SOAPEnvelope;
@@ -34,7 +36,6 @@ public class HeaderHandler implements SOAPHandler<SOAPMessageContext> {
     @Override
     public boolean handleMessage(SOAPMessageContext context) {
         
-        System.out.println("#####STARTING HANDLER#####");
         
         //checks Message Context to see if the message is a request
         boolean isRequest = (Boolean) context.get(MessageContext.MESSAGE_OUTBOUND_PROPERTY);
@@ -69,11 +70,10 @@ public class HeaderHandler implements SOAPHandler<SOAPMessageContext> {
                 //Saves the above changes to the element. 
                 msg.saveChanges();
                 
-                System.out.println("#####ENDING HANDLER#####");
             }
             catch (SOAPException ex)
             {
-                System.out.println("IMPLEMENT LOGGING");
+                Logger.getLogger(HeaderHandler.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         
@@ -82,14 +82,13 @@ public class HeaderHandler implements SOAPHandler<SOAPMessageContext> {
 
     @Override
     public boolean handleFault(SOAPMessageContext context) {
-        
-       System.out.println("IMPLEMENT LOGGING");
+       Logger.getLogger(HeaderHandler.class.getName()).log(Level.WARNING, "Header Handler Fault");
        return true;
     }
 
     @Override
     public void close(MessageContext context) {
-        System.out.println("IMPLEMENT LOGGING");
+        Logger.getLogger(HeaderHandler.class.getName()).log(Level.INFO, "Header Handler Closed");
     }
     
 }

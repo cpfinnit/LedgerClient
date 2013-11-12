@@ -12,4 +12,6 @@
     <system systemId="http://localhost:8080/LedgerApp/AddAccountImplService?xsd=1" uri="wsdl/localhost_8080/LedgerApp/AddAccountImplService.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/LedgerApp/AddTransactionImplService?wsdl" uri="wsdl/localhost_8080/LedgerApp/AddTransactionImplService.wsdl"/>
     <system systemId="http://localhost:8080/LedgerApp/AddTransactionImplService?xsd=1" uri="wsdl/localhost_8080/LedgerApp/AddTransactionImplService.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/LedgerApp/GetAccountImplService?wsdl" uri="wsdl/localhost_8080/LedgerApp/GetAccountImplService.wsdl"/>
+    <system systemId="http://localhost:8080/LedgerApp/GetAccountImplService?xsd=1" uri="wsdl/localhost_8080/LedgerApp/GetAccountImplService.xsd_1.xsd"/>
 </catalog>

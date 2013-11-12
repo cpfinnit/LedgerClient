@@ -7,6 +7,9 @@
         <javaee:handler>
             <javaee:handler-class>ledgerclient.handlers.HeaderHandler</javaee:handler-class>
         </javaee:handler>
+        <javaee:handler>
+            <javaee:handler-class>ledgerclient.handlers.LoggingHandler</javaee:handler-class>
+        </javaee:handler>
     </javaee:handler-chain>
     
 </javaee:handler-chains>

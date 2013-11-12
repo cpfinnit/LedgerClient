@@ -10,6 +10,9 @@
 <message name="getAccountResponse">
 <part name="parameters" element="tns:getAccountResponse"/>
 </message>
+<message name="InvalidAccountException">
+<part name="fault" element="tns:InvalidAccountException"/>
+</message>
 <message name="getAccounts">
 <part name="parameters" element="tns:getAccounts"/>
 </message>
@@ -20,10 +23,12 @@
 <operation name="getAccount">
 <input wsam:Action="http://accountservice.service.ledgerapp.com/GetAccountInformation/getAccountRequest" message="tns:getAccount"/>
 <output wsam:Action="http://accountservice.service.ledgerapp.com/GetAccountInformation/getAccountResponse" message="tns:getAccountResponse"/>
+<fault message="tns:InvalidAccountException" name="InvalidAccountException" wsam:Action="http://accountservice.service.ledgerapp.com/GetAccountInformation/getAccount/Fault/InvalidAccountException"/>
 </operation>
 <operation name="getAccounts">
 <input wsam:Action="http://accountservice.service.ledgerapp.com/GetAccountInformation/getAccountsRequest" message="tns:getAccounts"/>
 <output wsam:Action="http://accountservice.service.ledgerapp.com/GetAccountInformation/getAccountsResponse" message="tns:getAccountsResponse"/>
+<fault message="tns:InvalidAccountException" name="InvalidAccountException" wsam:Action="http://accountservice.service.ledgerapp.com/GetAccountInformation/getAccounts/Fault/InvalidAccountException"/>
 </operation>
 </portType>
 <binding name="GetAccountInformationImplPortBinding" type="tns:GetAccountInformation">
@@ -36,6 +41,9 @@
 <output>
 <soap:body use="literal"/>
 </output>
+<fault name="InvalidAccountException">
+<soap:fault name="InvalidAccountException" use="literal"/>
+</fault>
 </operation>
 <operation name="getAccounts">
 <soap:operation soapAction=""/>
@@ -45,6 +53,9 @@
 <output>
 <soap:body use="literal"/>
 </output>
+<fault name="InvalidAccountException">
+<soap:fault name="InvalidAccountException" use="literal"/>
+</fault>
 </operation>
 </binding>
 <service name="GetAccountInformationImplService">

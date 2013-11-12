@@ -1,5 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Metro/2.3 (tags/2.3-7528; 2013-04-29T19:34:10+0000) JAXWS-RI/2.2.8 JAXWS/2.2 svn-revision#unknown. --><xs:schema xmlns:tns="http://accountservice.service.ledgerapp.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://accountservice.service.ledgerapp.com/">
 
+<xs:element name="InvalidAccountException" type="tns:InvalidAccountException"/>
+
 <xs:element name="getAccount" type="tns:getAccount"/>
 
 <xs:element name="getAccountResponse" type="tns:getAccountResponse"/>
@@ -8,15 +10,15 @@
 
 <xs:element name="getAccountsResponse" type="tns:getAccountsResponse"/>
 
-<xs:complexType name="getAccount">
+<xs:complexType name="getAccounts">
 <xs:sequence>
 <xs:element name="arg0" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="getAccountResponse">
+<xs:complexType name="getAccountsResponse">
 <xs:sequence>
-<xs:element name="return" type="tns:account" minOccurs="0"/>
+<xs:element name="return" type="tns:account" minOccurs="0" maxOccurs="unbounded"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -28,15 +30,22 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="getAccounts">
+<xs:complexType name="InvalidAccountException">
+<xs:sequence>
+<xs:element name="faultInfo" type="xs:string" minOccurs="0"/>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAccount">
 <xs:sequence>
 <xs:element name="arg0" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="getAccountsResponse">
+<xs:complexType name="getAccountResponse">
 <xs:sequence>
-<xs:element name="return" type="tns:account" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="return" type="tns:account" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 </xs:schema>

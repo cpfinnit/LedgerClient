@@ -13,16 +13,6 @@
 </xs:complexType>
 
 <xs:complexType name="AddAccountResponse">
-<xs:sequence>
-<xs:element name="return" type="tns:account" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="account">
-<xs:sequence>
-<xs:element name="accountName" type="xs:string" minOccurs="0"/>
-<xs:element name="accountNum" type="xs:string" minOccurs="0"/>
-<xs:element name="bankName" type="xs:string" minOccurs="0"/>
-</xs:sequence>
+<xs:sequence/>
 </xs:complexType>
 </xs:schema>
